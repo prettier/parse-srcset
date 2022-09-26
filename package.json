@@ -7,7 +7,7 @@
     "./*": "./"
   },
   "files": [
-    "./src/parse-srcset.js"
+    "src/parse-srcset.js"
   ],
   "type": "module",
   "directories": {
