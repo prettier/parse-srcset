@@ -6,23 +6,24 @@
     ".": "./src/parse-srcset.js",
     "./*": "./"
   },
+  "files": [
+    "./src/parse-srcset.js"
+  ],
   "type": "module",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "intern-client config=tests/intern"
+    "test": "intern-client config=tests/intern",
+    "release": "np --yolo --no-yarn"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/albell/parse-srcset.git"
-  },
+  "repository": "prettier/parse-srcset",
   "author": "Alex Bell <alex@bellandwhistle.net>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/albell/parse-srcset/issues"
+    "url": "https://github.com/prettier/parse-srcset/issues"
   },
-  "homepage": "https://github.com/albell/parse-srcset#readme",
+  "homepage": "https://github.com/prettier/parse-srcset#readme",
   "devDependencies": {
     "intern-geezer": "^2.2.3"
   },
