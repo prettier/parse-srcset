@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "A spec-conformant JavaScript parser for the HTML5 srcset attribute",
   "main": "src/parse-srcset.js",
+  "type": "module",
   "directories": {
     "test": "tests"
   },
