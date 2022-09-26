@@ -15,9 +15,7 @@
  */
 
 // 1. Let input be the value passed to this algorithm.
-function parseSrcset(input, options) {
-	var logger = (options && options.logger) || console;
-
+function parseSrcset(input) {
 	// UTILITY FUNCTIONS
 
 	// Manual is faster than RegEx
@@ -306,8 +304,8 @@ function parseSrcset(input, options) {
 			if (d) { candidate.d = d;}
 			if (h) { candidate.h = h;}
 			candidates.push(candidate);
-		} else if (logger && logger.error) {
-			logger.error("Invalid srcset descriptor found in '" +
+		} else {
+			throw new SyntaxError("Invalid srcset descriptor found in '" +
 				input + "' at '" + desc + "'.");
 		}
 	} // (close parseDescriptors fn)
