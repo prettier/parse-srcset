@@ -14,8 +14,15 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "intern-client config=tests/intern",
+    "test": "node --test",
+    "test-coverage": "c8 node --test",
     "release": "np --yolo --no-yarn"
+  },
+  "c8": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
   },
   "repository": "prettier/parse-srcset",
   "author": "Alex Bell <alex@bellandwhistle.net>",
@@ -24,11 +31,11 @@
     "url": "https://github.com/prettier/parse-srcset/issues"
   },
   "homepage": "https://github.com/prettier/parse-srcset#readme",
-  "devDependencies": {
-    "intern-geezer": "^2.2.3"
-  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "c8": "7.12.0"
   }
 }
