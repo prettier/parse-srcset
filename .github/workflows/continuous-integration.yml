@@ -45,20 +45,20 @@ jobs:
         with:
           fail_ci_if_error: true
 
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    env:
-      YARN_ENABLE_IMMUTABLE_INSTALLS: false
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+  # lint:
+  #   name: Lint
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     YARN_ENABLE_IMMUTABLE_INSTALLS: false
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v3
 
-      - name: Install Dependencies
-        run: yarn
+  #     - name: Install Dependencies
+  #       run: yarn
 
-      - name: Run Lint
-        run: yarn lint
+  #     - name: Run Lint
+  #       run: yarn lint
