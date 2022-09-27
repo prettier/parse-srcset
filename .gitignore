@@ -6,3 +6,13 @@
 .Trashes
 
 node_modules
+*.log
+coverage
+
+# Yarn 2
+.yarn/cache/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+yarn.lock
