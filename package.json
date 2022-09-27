@@ -22,6 +22,9 @@
     "reporter": [
       "lcov",
       "text"
+    ],
+    "include": [
+      "src"
     ]
   },
   "repository": "prettier/parse-srcset",
@@ -37,5 +40,6 @@
   },
   "devDependencies": {
     "c8": "7.12.0"
-  }
+  },
+  "packageManager": "yarn@3.2.2"
 }
