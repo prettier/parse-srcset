@@ -4,7 +4,7 @@
   "description": "A spec-conformant JavaScript parser for the HTML5 srcset attribute",
   "exports": {
     ".": "./src/parse-srcset.js",
-    "./*": "./"
+    "./*": "./*"
   },
   "files": [
     "src/parse-srcset.js"
