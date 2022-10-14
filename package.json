@@ -1,6 +1,6 @@
 {
   "name": "@prettier/parse-srcset",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A spec-conformant JavaScript parser for the HTML5 srcset attribute",
   "exports": {
     ".": "./src/parse-srcset.js",
