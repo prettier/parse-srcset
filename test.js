@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import he from 'he';
-import parseSrcset from './src/parse-srcset.js';
+import parseSrcset from './index.js';
 
 // HTML Entities are much easier to troubleshoot in console.
 const encodeHtmlEntities = text => he.encode(text, {useNamedReferences: true});
