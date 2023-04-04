@@ -261,7 +261,7 @@ const decodeHtmlEntities = text => he.decode(text);
 		
 		function runTest(testCase) {
 			var origAttr = testCase.srcset;
-			var attrDecoded = encodeHtmlEntities(origAttr);
+			var attrDecoded = decodeHtmlEntities(origAttr);
 			var parsed = parseSrcset(attrDecoded);
 			
 			var firstCandidate = parsed[0];
@@ -275,7 +275,7 @@ const decodeHtmlEntities = text => he.decode(text);
 			
 			// Must re-encode url prior to comparison with expected string.
 			if (url) {
-				encodedUrl = decodeHtmlEntities(url);
+				encodedUrl = encodeHtmlEntities(url);
 			}
 
 			console.log("");		
