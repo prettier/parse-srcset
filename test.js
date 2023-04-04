@@ -1,10 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import he from 'he';
 import parseSrcset from './src/parse-srcset.js';
-import he from './tests/he.js';
 
 // HTML Entities are much easier to troubleshoot in console.
-he.encode.options.useNamedReferences = true;
+const encodeHtmlEntities = text => he.encode(text, {useNamedReferences: true});
+const decodeHtmlEntities = text => he.decode(text);
+
 
 		// Adapted from the W3C srcset conformance checker at:
 		// http://w3c-test.org/html/semantics/embedded-content/the-img-element/srcset/parse-a-srcset-attribute.html
@@ -259,7 +261,7 @@ he.encode.options.useNamedReferences = true;
 		
 		function runTest(testCase) {
 			var origAttr = testCase.srcset;
-			var attrDecoded = he.decode(origAttr);
+			var attrDecoded = decodeHtmlEntities(origAttr);
 			var parsed = parseSrcset(attrDecoded);
 			
 			var firstCandidate = parsed[0];
@@ -273,7 +275,7 @@ he.encode.options.useNamedReferences = true;
 			
 			// Must re-encode url prior to comparison with expected string.
 			if (url) {
-				encodedUrl = he.encode(url);
+				encodedUrl = encodeHtmlEntities(url);
 			}
 
 			console.log("");		
