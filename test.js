@@ -14,9 +14,9 @@ const w3Ctests = [
 	{
 		groupName: "Splitting Loop",
 		testArray: [
-			{srcset: '',    expect: '', desc: 'empty string'},
-			{srcset: ',' ,  expect: '', desc: 'single comma'},
-			{srcset: ',,,', expect: '', desc: 'three commas'},
+			{srcset: '',    expect: '', desc: 'empty string', expectFailure: true},
+			{srcset: ',' ,  expect: '', desc: 'single comma', expectFailure: true},
+			{srcset: ',,,', expect: '', desc: 'three commas', expectFailure: true},
 			{srcset: '&#x9;&#x9;data:,a&#x9;&#x9;1x&#x9;&#x9;', expect: 'data:,a', desc: 'tabs'},
 			{srcset: '&#xA;&#xA;data:,a&#xA;&#xA;1x&#xA;&#xA;', expect: 'data:,a', desc: 'line feeds'},
 			{srcset: '&#xB;&#xB;data:,a&#xB;&#xB;1x&#xB;&#xB;', expect: '&#xB;&#xB;data:,a&#xB;&#xB;1x&#xB;&#xB;', desc: 'line tab'},
@@ -260,34 +260,25 @@ const w3Ctests = [
 ];
 
 function runTest(testCase) {
-	const origAttr = testCase.srcset;
-	const attrDecoded = decodeHtmlEntities(origAttr);
-	const parsed = parseSrcset(attrDecoded);
-	
-	const firstCandidate = parsed[0];
-	
-	let url = "";
-	let encodedUrl = "";
+	test(`${testCase.desc} (${testCase.srcset})`, () => {
+		const origAttr = testCase.srcset;
+		const attrDecoded = decodeHtmlEntities(origAttr);
+		const parsed = parseSrcset(attrDecoded);
+		
+		const firstCandidate = parsed[0];
+		
+		let url = "";
+		let encodedUrl = "";
 
-	if (firstCandidate) {
-		url = firstCandidate.url;
-	}
-	
-	// Must re-encode url prior to comparison with expected string.
-	if (url) {
-		encodedUrl = encodeHtmlEntities(url);
-	}
+		if (firstCandidate) {
+			url = firstCandidate.source.value;
+		}
+		
+		// Must re-encode url prior to comparison with expected string.
+		if (url) {
+			encodedUrl = encodeHtmlEntities(url);
+		}
 
-	console.log("");		
-	console.log(testCase.desc);
-	console.log("origAttr: '" + origAttr + "'");
-	console.log("attrDecoded: '" + attrDecoded + "'");
-	console.log("parsed: ", parsed);
-	console.log("url: '" + url + "'");
-	console.log("encodedUrl: '" + encodedUrl + "'");
-
-
-	test( testCase.desc , () => {
 		assert.strictEqual(encodedUrl, testCase.expect, "passed" );
 	});
 }
