@@ -266,8 +266,8 @@ function runTest(testCase) {
 	
 	const firstCandidate = parsed[0];
 	
-	const url = "";
-	const encodedUrl = "";
+	let url = "";
+	let encodedUrl = "";
 
 	if (firstCandidate) {
 		url = firstCandidate.url;
