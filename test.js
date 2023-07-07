@@ -260,7 +260,7 @@ const w3Ctests = [
 ];
 
 function runTest(testCase) {
-	test(`${testCase.desc} (${testCase.srcset})`, () => {
+	return test(`${testCase.desc} (${testCase.srcset})`, () => {
 		const origAttr = testCase.srcset;
 		const attrDecoded = decodeHtmlEntities(origAttr);
 		const parsed = parseSrcset(attrDecoded);
@@ -285,10 +285,10 @@ function runTest(testCase) {
 
 for (const {groupName, testArray} of w3Ctests) {
 	// Group Tests
-	test(groupName, () => {
+	test(groupName, async () => {
 		for (const testCase of testArray) {
 			if (testCase.expectFailure) {
-				test(testCase.desc, () => {
+				await test(testCase.desc, () => {
 					assert.throws(() => {
 						const origAttr = testCase.srcset;
 						const attrDecoded = decodeHtmlEntities(origAttr);
@@ -296,7 +296,7 @@ for (const {groupName, testArray} of w3Ctests) {
 					})
 				})
 			} else {
-				runTest(testCase);
+				await runTest(testCase);
 			}
 		}
 	});
