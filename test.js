@@ -285,7 +285,7 @@ function runTest(testCase) {
 
 for (const {groupName, testArray} of w3Ctests) {
 	// Group Tests
-	describe(groupName, async () => {
+	test(groupName, async () => {
 		for (const testCase of testArray) {
 			if (testCase.expectFailure) {
 				await test(testCase.desc, () => {
