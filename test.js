@@ -1,4 +1,4 @@
-import test from "node:test";
+import {describe, test} from "node:test";
 import assert from "node:assert/strict";
 import he from 'he';
 import parseSrcset from './index.js';
@@ -285,7 +285,7 @@ function runTest(testCase) {
 
 for (const {groupName, testArray} of w3Ctests) {
 	// Group Tests
-	test(groupName, () => {
+	describe(groupName, async () => {
 		for (const testCase of testArray) {
 			if (testCase.expectFailure) {
 				await test(testCase.desc, () => {
