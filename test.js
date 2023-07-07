@@ -1,4 +1,4 @@
-import {describe, test} from "node:test";
+import test from "node:test";
 import assert from "node:assert/strict";
 import he from 'he';
 import parseSrcset from './index.js';
