@@ -4,7 +4,8 @@
   "description": "A spec-conformant JavaScript parser for the HTML5 srcset attribute",
   "exports": "./index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "type": "module",
   "directories": {
